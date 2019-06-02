@@ -29,22 +29,29 @@ public class User
         this.FriendReqs = new ArrayList<>();
         //User user = new User(wall);
     }
-
+    // method gia na kanoume collect tous Mi - filous apo to network.
     void addNotFriends(){NotFriends =  net.getUsersYDhave(this);}
     ArrayList<User> getNotFriends(){return NotFriends;}
 
+    //Methodo gia na ektupwsoume olous tous MI - filous.
     public void showNotFriends(){
         for (int i=0 ; i<NotFriends.size() ;i++ ){
             System.out.println( "["+i+"]: "+NotFriends.get(i).getUser() );
         }
     }
+    // Setter gia to username tou User.
     public void setUser(String user){username = user ;}
+    // Setter gia to email tou User.
     public void setEmail(String em){email = em ;}
-    String getUser(){return username;}
+    // getter gia to Username tou User.
+    public String getUser(){return username;}
+    // getter gia to Email tou User.
     public String getEmail(){return email;}
+    // Epistrefei ola ta aitimata filias pou exoun kanei ston User.
     ArrayList<User> getAitimataAutoi(){return this.aitimataAutoi;}
+    // Epistrefei ola ta aitimata filias pou exei pragmatopoihsei o User se allous.
     ArrayList<User> getAitimataEgw() {return this.aitimataEgw;}
-
+    // Ektupwnei ta Aitimata pou exoun kanei ston User.
     void ShowAitimata(){
         for (int i=0 ; i< aitimataAutoi.size(); i++){
             System.out.println(i+ ": " + aitimataAutoi.get(i));
@@ -200,12 +207,12 @@ public class User
             System.out.println("The User : " + this.getUser() + " doesn't have any requests! \n");
         }
     }
-
+    // Epistrefei Username , email tou User.
     public String toString(){
         return ("Username: "+username+"\te-mail: "+email);
     }
 
-    //-------------helpers-----------------
+    //-------------helpers----------------- tous opoious tous xrisimopoioume stin Class Network.
     public  void Reply(Message mes, String a)
     {
         ReplyMessage rm = new ReplyMessage(a,time,this);

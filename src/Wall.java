@@ -6,6 +6,7 @@ class Wall
         this.user = user;
     }
 
+        // Methodo stin opoia Emfanizoume ola ta Messages Kai Replies enos Xristi.
     void DisplayPosts() {
         for (int i=0 ;i<user.getMessages().size();i++) {
             System.out.println(user.getMessages().get(i));

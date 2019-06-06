@@ -95,7 +95,7 @@ public class User
 
     //Apodoxh/Aporripsh filias
     void AnswerR(User AFriend){
-        System.out.println("thes ton xristi " + AFriend.getUser() + " na ginei filos sou? \n");
+        System.out.println("Would you like " + AFriend.getUser() + " to be your friend? \n");
         char ch;
         do {
             System.out.println("Enter 'Y' to accept, 'N' to decline, 'O' to exit.\n");
@@ -176,7 +176,7 @@ public class User
     //Ektupwnontai ta posts
     void ShowMessages(){
         for (int i=0;i<messages.size(); i++ )
-        {System.out.println(i+ ": "+ messages.get(i));}
+        {System.out.println("\n" + i+ ": "+ messages.get(i));}
 
     }
 

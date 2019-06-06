@@ -36,7 +36,7 @@ public class Network {
     //prosthiki enos user sto Network
     void addUser(User Nuser) {
         if (ListofUsers.contains(Nuser))
-            System.out.println("Yparxei idi sto systima");
+            System.out.println("User " + Nuser.getUser() + " already exists.");
         else ListofUsers.add(Nuser);
     }
 
@@ -44,7 +44,7 @@ public class Network {
     public void delUser(User rUser) {
         if (ListofUsers.contains(rUser))
             ListofUsers.remove(rUser);
-        else System.out.println("Den uparxei sto systima");
+        else System.out.println("User doesn't exist.");
     }
 
 

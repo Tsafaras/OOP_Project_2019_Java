@@ -10,10 +10,10 @@ public class Message
     private ArrayList<ReplyMessage> ReMessa;
     private ArrayList<User> LikedBy;
 
-    Message(String minima , Timestamp time ,User u1)
+    Message(String minima , User u1)
     {
         this.minima = minima ;
-        this.time = time ;
+        this.time = new Timestamp(System.currentTimeMillis());
         this.Username = u1.getUser();
         this.ReMessa =  new ArrayList<>();
         this.LikedBy = new ArrayList<>();

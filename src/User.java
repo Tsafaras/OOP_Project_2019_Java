@@ -1,5 +1,4 @@
 import java.util.*;
-import java.sql.Timestamp;
 import java.util.Scanner;
 
 public class User
@@ -8,7 +7,6 @@ public class User
     private String username;
     private String email;
     private ArrayList<User> friends;
-    private Timestamp time;
     private String post;
     private ArrayList<Message> messages;
     private Scanner Insert = new Scanner(System.in);
@@ -27,14 +25,14 @@ public class User
         this.aitimataEgw = new ArrayList<>();
         this.aitimataAutoi = new ArrayList<>();
         this.FriendReqs = new ArrayList<>();
-        //User user = new User(wall);
+        net.addUser(this);
     }
     // method gia na kanoume collect tous Mi - filous apo to network.
     void addNotFriends(){NotFriends =  net.getUsersYDhave(this);}
     ArrayList<User> getNotFriends(){return NotFriends;}
 
     //Methodo gia na ektupwsoume olous tous MI - filous.
-    public void showNotFriends(){
+    void showNotFriends(){
         for (int i=0 ; i<NotFriends.size() ;i++ ){
             System.out.println( "["+i+"]: "+NotFriends.get(i).getUser() );
         }
@@ -44,7 +42,7 @@ public class User
     // Setter gia to email tou User.
     public void setEmail(String em){email = em ;}
     // getter gia to Username tou User.
-    public String getUser(){return username;}
+    String getUser(){return username;}
     // getter gia to Email tou User.
     public String getEmail(){return email;}
     // Epistrefei ola ta aitimata filias pou exoun kanei ston User.
@@ -70,7 +68,7 @@ public class User
 
                     System.out.println("User " + user1.getUser() + " was added.");
 
-                    FriendRequest fr = new FriendRequest(this, user1, time);
+                    FriendRequest fr = new FriendRequest(this, user1);
 
                     this.FriendReqs.add(fr);
                     user1.FriendReqs.add(fr);
@@ -139,9 +137,9 @@ public class User
     //Postarei message se wall
     void PostMess(User u){
         if ( u.getUser().equals(this.username) || u.getFriends().contains(this)){
-            System.out.println("Grapse ti thes na postareis!!\n");
+            System.out.println("What would you like to post?\n");
             post = Insert.nextLine();
-            Message mes = new Message(post ,time = new Timestamp(System.currentTimeMillis()) , u);
+            Message mes = new Message(post, this);
             u.messages.add(mes);
         }
     }
@@ -187,7 +185,7 @@ public class User
     {
         System.out.println("Add your comment:");
         post = Insert.nextLine();
-        ReplyMessage re = new ReplyMessage(post,time = new Timestamp(System.currentTimeMillis()),this) ;
+        ReplyMessage re = new ReplyMessage(post,this) ;
         m.addreply(re);
     }
 
@@ -213,15 +211,15 @@ public class User
     }
 
     //-------------helpers----------------- tous opoious tous xrisimopoioume stin Class Network.
-    public  void Reply(Message mes, String a)
+    void Reply(Message mes, String a)
     {
-        ReplyMessage rm = new ReplyMessage(a,time,this);
+        ReplyMessage rm = new ReplyMessage(a,this);
         mes.addreply(rm);
     }
 
     void setMessage(User u, String post)
     {
-        Message mes = new Message(post,time = new Timestamp(System.currentTimeMillis()), this);
+        Message mes = new Message(post, this);
         u.messages.add(mes);
     }
 

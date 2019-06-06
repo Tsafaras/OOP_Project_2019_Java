@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Network {
     private static Network net = null;
     private ArrayList<User> ListofUsers;
@@ -73,7 +74,7 @@ public class Network {
         return (Mutuals);
     }
     // Helper Method , h opoia dimiourgei xristes , posts ,likes , filies , me thn enarksi tou programmatos.
-    public void HelperMethod() {
+    void HelperMethod() {
 
         User u1 = new User("George", "akkaka@gmail.com");
         User u2 = new User("Constantine", "alala@hotmail.gr");
@@ -83,15 +84,6 @@ public class Network {
         User u6 = new User("Jim", "djalda@ofka.com");
         User u7 = new User("Melina", "melina@ofka.com");
         User u8 = new User("Aggeliki", "aggeliki@ofka.com");
-
-
-        net.addUser(u1);
-        net.addUser(u2);
-        net.addUser(u3);
-        net.addUser(u5);
-        net.addUser(u6);
-        net.addUser(u7);
-        net.addUser(u8);
 
         u2.setFriends(u3);
         u1.setFriends(u2);
@@ -113,9 +105,9 @@ public class Network {
         u2.Like(u3.getMessages().get(2));
         u5.Like(u3.getMessages().get(2));
         u1.setMessage(u2, "Hey , how about dinner tonight? :D :D ");
-        u5.setMessage(u1,"Say my Name");
-        u5.setMessage(u2,"Los Pollos Hermanos");
+        u5.setMessage(u1, "Say my Name");
+        u5.setMessage(u2, "Los Pollos Hermanos");
         u5.setMessage(u7, "How you doing");
-        u2.setMessage(u3,"HEEEY");
-
-}}
+        u2.setMessage(u3, "HEEEY");
+    }
+}

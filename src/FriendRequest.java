@@ -11,10 +11,10 @@ class FriendRequest {
 
     private Status status = Status.Pending;
 
-    private Timestamp time = new Timestamp(System.currentTimeMillis());
+    private Timestamp time;
 
-    FriendRequest(User user1, User user2, Timestamp time){
-        this.time = time;
+    FriendRequest(User user1, User user2){
+        this.time = new Timestamp(System.currentTimeMillis());
         this.user_sent = user1;
         this.user_received = user2;
     }

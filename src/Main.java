@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    private Message mes;
     private static String username;
     private static Scanner Insert = new Scanner(System.in);
     private static boolean flag = true;
@@ -24,9 +23,9 @@ public class Main {
                 }
             }
 
-            System.out.println("-----Welcome To Fakebook User: " + username + " -----");
+            System.out.println("-----Welcome to Fakebook " + username + " -----");
             Menu m1 = new Menu();
-            i = m1.Run(username, "dada@okp.gr", net);
+            i = m1.Run(username, net);
             if ( i == 2) break;
             if ( i == 1) flag = true;
         } while (i==1);

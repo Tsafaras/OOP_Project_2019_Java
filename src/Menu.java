@@ -6,7 +6,7 @@ class Menu {
     Menu() {
     }
 
-    int Run(String username, String email, Network net){
+    int Run(String username, Network net){
         Scanner Insert = new Scanner(System.in);
         for (User u : net.getUsers()){
             if (username.equals(u.getUser())){ this.user = u; }
